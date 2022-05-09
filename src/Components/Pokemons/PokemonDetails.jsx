@@ -114,7 +114,7 @@ const PokemonDetails = (props) => {
                             {!loader ? (<>
                                 {renderImg()}
                                 <Box sx={{ display: 'flex', alignItems: 'center', pl: 10, pb: 1 }}>
-                                    <IconButton aria-label="previous" onClick={() => {
+                                    <IconButton aria-label="previous" disabled={index === 0 ? true : false} onClick={() => {
                                         if (index > 0) {
                                             setIndex(index - 1)
                                         }
@@ -127,7 +127,7 @@ const PokemonDetails = (props) => {
                                     </IconButton>
                                     <IconButton aria-label="play/pause">
                                     </IconButton>
-                                    <IconButton aria-label="next" onClick={() => {
+                                    <IconButton aria-label="next" disabled={index === props.pokemons?.results?.length - 1 ? true : false} onClick={() => {
                                         if (index < props.pokemons?.results?.length - 1) {
                                             setIndex(index + 1)
                                         }
@@ -220,7 +220,7 @@ const PokemonDetails = (props) => {
                                         </List>
                                     </nav>
                                 </Box>
-                            </>) : (<CircularProgress color='warning'/>
+                            </>) : (<CircularProgress color='warning' />
                             )}
                         </CardContent>
 
